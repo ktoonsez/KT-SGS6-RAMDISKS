@@ -1199,6 +1199,10 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
     oneshot
 # end of BT
 
+service sysinit /system/bin/logwrapper /system/xbin/busybox run-parts /system/etc/init.d
+    disabled
+    oneshot
+
 service post-init /sbin/post-init.sh
     class core
     user root

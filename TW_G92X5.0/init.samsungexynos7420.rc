@@ -508,17 +508,21 @@ on fs
     chown system system /sys/class/backlight/panel/brightness
     chown system system /sys/class/backlight/panel/auto_brightness
 
-# Permissions for LCD HMT
-    chown system system /sys/class/lcd/panel/hmt_on
-    chown system system /sys/class/lcd/panel/hmt_bright
-    chown system system /sys/class/mdnie/mdnie/hmt_color_temperature
-
 # Permissions for LCD
     chown system radio /sys/class/lcd/panel/manufacture_code
     chown system radio /sys/class/lcd/panel/lcd_type
     chown system system /sys/class/lcd/panel/siop_enable
     chown system system /sys/class/lcd/panel/temperature
-    chown system system /sys/class/backlight/panel/weakness_hbm_comp
+    chown system radio /sys/class/lcd/panel/mcd_mode
+    chown system system /sys/class/backlight/panel/weakness_hbm_comp	
+
+# Permissions for LCD HMT
+    chown system system /sys/class/lcd/panel/hmt_on
+    chown system system /sys/class/lcd/panel/hmt_bright
+    chown system system /sys/class/mdnie/mdnie/hmt_color_temperature
+
+# Permissions for LCD ALPM
+    chown system system /sys/class/lcd/panel/alpm
 
 # Permissions for MDNIE
     chown system media_rw /sys/class/mdnie/mdnie/mode
@@ -655,6 +659,9 @@ on fs
     chown system radio /sys/class/sensors/grip_sensor/gain
     chown system radio /sys/class/sensors/grip_sensor/start
     chown system radio /sys/class/sensors/grip_sensor/slope
+    chown system radio /sys/class/sensors/grip_sensor/temp
+    chown system radio /sys/class/sensors/grip_sensor/temp_cal
+    chown system radio /sys/class/sensors/grip_sensor/capmain
 
 # SensorHub
     chown system radio /sys/class/sensors/ssp_sensor/enable

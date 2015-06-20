@@ -56,6 +56,8 @@ on init
 
     symlink /data/app /factory
 
+    symlink /dev/block/platform/15570000.ufs/by-name/STEADY /dev/block/steady
+
 #Private Mode
     mkdir /mnt/shell/privatemode 0700 system system
     mkdir /storage/Private 0000 system system
@@ -810,6 +812,11 @@ on property:ro.debuggable=1
 on property:sys.boot_completed=1
     write /proc/sys/vm/dirty_bytes 62914560
     write /proc/sys/vm/dirty_background_bytes 20971520
+
+# Activate Background Compaction
+on property:sys.sysctl.compact_memory=1
+    write /proc/sys/vm/compact_memory 1
+    setprop sys.sysctl.compact_memory=0
 
 #
 # start netmgrd
